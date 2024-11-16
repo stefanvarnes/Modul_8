@@ -13,8 +13,15 @@ terraform {
   }
 }
 
+resource "github_actions_environment_secret" "git_secret" {
+  environment       = "GIT Vars"
+  secret_name       = "ARM_SUBSCRIPTION_ID"
+  plaintext_value   = var.some_secret_string
+}
+
 provider "azurerm" {
-  subscription_id = var.ARM_SUBSCRIPTION_ID
+  # subscription_id = var.ARM_SUBSCRIPTION_ID
+  subscription_id = github_actions_environment_secret.plaintext_value
   features {}
 
 }
