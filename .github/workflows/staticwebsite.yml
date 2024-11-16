@@ -29,9 +29,11 @@ jobs:
 
       - name: 'Terraform plan'
         id: plan
-        run: |
-          terraform plan
-          echo ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        inputs:
+          description: 'Terraform Sub id'
+          required: true
+          default: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        run: terraform plan
         # working-directory: ${{ env.WORKING_DIR }}
       
       - name: 'Terraform apply'
