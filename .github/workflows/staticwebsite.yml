@@ -54,5 +54,5 @@ jobs:
       - name: 'Terraform destroy'
         if: github.event.inputs.action_type == 'destroy'
         id: destroy
-        run: terraform destroy terraform apply -var=ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }} -auto-approve
+        run: terraform destroy -var=ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }} -auto-approve
           
