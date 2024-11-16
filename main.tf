@@ -37,3 +37,5 @@ module "StorageAccount" {
   index_document = var.index_document
   source_content = "${var.source_content}: ${local.workspaces_suffix}"
 }
+
+#Test
