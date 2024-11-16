@@ -24,14 +24,14 @@ jobs:
 
       - name: 'Terraform init'
         id: init
-        run: |
-          echo ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          terraform init
+        run: terraform init
         # working-directory: ${{ env.WORKING_DIR }}
 
       - name: 'Terraform plan'
         id: plan
-        run: terraform plan
+        run: |
+          echo ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          terraform plan
         # working-directory: ${{ env.WORKING_DIR }}
       
       - name: 'Terraform apply'
