@@ -6,7 +6,7 @@ variable "ARM_SUBSCRIPTION_ID" {
 variable "rg_base_name" {
   type        = string
   description = "The basename for resources and resourcegroups"
-  default     = "rg-tfdemo-modul7-sv"
+  default     = "rg-tfdemo-modul8-sv"
 }
 
 variable "location" {
