@@ -1,6 +1,15 @@
+resource "github_actions_environment_secret" "git_secret" {
+  environment       = "GIT Vars"
+  secret_name       = "ARM_SUBSCRIPTION_ID"
+  plaintext_value   = var.some_secret_string
+}
+
+######################################################
+
 variable "ARM_SUBSCRIPTION_ID" {
   type = string
   description = "ARM_SUBSCRIPTION_ID"
+  default = github_actions_environment_secret.plaintext_value
 }
 
 variable "rg_base_name" {
