@@ -14,7 +14,7 @@ terraform {
 }
 
 resource "github_actions_secret" "subid_secret" {
-  repository       = "MOdul_8"
+  repository       = "Modul_8"
   secret_name      = "ARM_SUBSCRIPTION_ID"
 }
 
