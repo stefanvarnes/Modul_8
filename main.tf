@@ -13,14 +13,8 @@ terraform {
   }
 }
 
-resource "github_actions_secret" "subid_secret" {
-  repository       = "Modul_8"
-  secret_name      = "ARM_SUBSCRIPTION_ID"
-}
-
 provider "azurerm" {
-  # subscription_id = var.ARM_SUBSCRIPTION_ID
-  subscription_id = github_actions_secret.subid_secret
+  subscription_id = var.ARM_SUBSCRIPTION_ID
   features {}
 
 }

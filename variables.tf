@@ -1,7 +1,6 @@
 variable "ARM_SUBSCRIPTION_ID" {
   type = string
   description = "ARM_SUBSCRIPTION_ID"
-  default = ""
 }
 
 variable "rg_base_name" {
