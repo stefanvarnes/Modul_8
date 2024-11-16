@@ -6,6 +6,15 @@ on:
       - 'Modul_8'
 
   workflow_dispatch:
+    inputs:
+      action_type:
+        description: 'What action should be performed? (apply / destroy)'
+        required: true
+        default: 'apply'
+        type: choice
+        options:
+          - 'apply'
+          - 'destroy'
 
 jobs:
   resourcegroups:
@@ -34,7 +43,7 @@ jobs:
       
       - name: 'Terraform apply'
         id: apply
-        run: terraform apply -auto-approve
+        run: terraform apply -var=ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }} -auto-approve
         # working-directory: ${{ env.WORKING_DIR }}
 
           
