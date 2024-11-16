@@ -41,9 +41,18 @@ jobs:
         run: terraform plan -var=ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }}
         # working-directory: ${{ env.WORKING_DIR }}
       
+      # - name: 'Terraform apply'
+      #   id: apply
+      #   run: terraform apply -var=ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }} -auto-approve
+      #   # working-directory: ${{ env.WORKING_DIR }}
+
       - name: 'Terraform apply'
+        if: github.event.inputs.action.type == 'apply'
         id: apply
         run: terraform apply -var=ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }} -auto-approve
-        # working-directory: ${{ env.WORKING_DIR }}
 
+      - name: 'Terraform destroy'
+        if: github.event.inputs.action.type == 'destroy'
+        id: destroy
+        run: terraform destroy -auto-approve
           
