@@ -30,8 +30,8 @@ jobs:
       - name: 'Terraform plan'
         id: plan
         run: |
-          echo ${{ secrets.ARM_SUBSCRIPTION_ID }}
           terraform plan
+          echo ${{ secrets.ARM_SUBSCRIPTION_ID }}
         # working-directory: ${{ env.WORKING_DIR }}
       
       - name: 'Terraform apply'
