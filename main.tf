@@ -38,6 +38,6 @@ module "StorageAccount" {
   source_content = "${var.source_content}: ${local.workspaces_suffix}"
 }
 
-output "primary_web_endpoint" {
-  value = azurerm_storage_account.module.storage_account.storage_account_name.primary_web_endpoint
+output "pwe" {
+  value = module.StorageAccount.primary_web_endpoint
 }
