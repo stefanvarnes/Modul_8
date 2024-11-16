@@ -17,7 +17,7 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      WORKING_DIR: ../../../Modul_8
+      # WORKING_DIR: ../../../Modul_8
 
     steps:
       - uses: actions/checkout@v3
@@ -25,16 +25,19 @@ jobs:
       - name: 'Terraform init'
         id: init
         run: terraform init
-        working-directory: ${{ env.WORKING_DIR }}
+        # working-directory: ${{ env.WORKING_DIR }}
+        working-directory: '/home/runner/work/Modul_8'
 
       - name: 'Terraform plan'
         id: plan
         run: terraform plan
-        working-directory: ${{ env.WORKING_DIR }}
+        # working-directory: ${{ env.WORKING_DIR }}
+        working-directory: '/home/runner/work/Modul_8'
       
       - name: 'Terraform apply'
         id: apply
         run: terraform apply -auto-approve
-        working-directory: ${{ env.WORKING_DIR }}
+        # working-directory: ${{ env.WORKING_DIR }}
+        working-directory: '/home/runner/work/Modul_8'
 
           
